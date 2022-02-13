@@ -38,7 +38,7 @@ npm install
 react-native link
 ```
 
-- start the app with live reloading
+- run the app
 
 ```
 react-native run-android
