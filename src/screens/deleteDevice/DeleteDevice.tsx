@@ -73,30 +73,6 @@ const DeleteDevice: FC<Props> = ({ navigation, route }) => {
         }
     }
 
-    const getQuoteOfTheDay2 = () => {
-        setLoading(true);
-        fetch('https://zenquotes.io/api/today', { method: 'GET' })
-          .then((response) => response.json())
-          .then((json) => {
-            setLoading(false);
-            
-            setModalTitle('Quote of the day');
-            setQuoteHtml(json?.[0]?.h ?? '');
-            setModalBtnTitle('OK');
-            setModalTwoBtns(false);
-            setModalAction({ action: () => { setModalVisible(false); navigation.goBack(); }});
-            setModalBackdrop(null);
-            if (Platform.OS === 'ios') {
-                setTimeout(() => setModalVisible(true), 500);
-            } else {
-                setModalVisible(true);
-            }
-          })
-          .catch((error) => {
-            setLoading(false);
-            console.log('getQuoteOfTheDay error: ',error);
-          });
-    };
 
     /**
       - Dispatch "delete device" action for the selected device.
